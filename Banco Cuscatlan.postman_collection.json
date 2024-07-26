@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "5c34a035-9048-45c3-ae1d-123265bef2e6",
+		"name": "Banco Cuscatlan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6616659"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "get-products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"microservice\": \"products\",\n    \"endPoint\": \"/products\",\n    \"body\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/gateway/post",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"gateway",
+								"post"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "create-order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurlpayments}}/api/order/create-order",
+							"host": [
+								"{{baseurlpayments}}"
+							],
+							"path": [
+								"api",
+								"order",
+								"create-order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-order",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientIdentification\": \"978295cd-2480-4ede-bcde-9b6251bdb32c\",\n    \"orderDetail\": {\n        \"productId\": 1,\n        \"price\": 45.98,\n        \"count\": 3\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurlpayments}}/api/order/update-order",
+							"host": [
+								"{{baseurlpayments}}"
+							],
+							"path": [
+								"api",
+								"order",
+								"update-order"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "process-payment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientIdentification\": \"978295cd-2480-4ede-bcde-9b6251bdb32c\",\n    \"creditCardNumber\": \"\",\n    \"creditCardSecurityCode\": \"\",\n    \"creditCardExpirationDate\": \"\",\n    \"creditCardName\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurlpayments}}/api/payment/process-payment",
+							"host": [
+								"{{baseurlpayments}}"
+							],
+							"path": [
+								"api",
+								"payment",
+								"process-payment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "http://localhost:8081",
+			"type": "string"
+		},
+		{
+			"key": "baseurlpayments",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
